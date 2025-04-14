@@ -5,74 +5,98 @@
 }
 
 <h2>People List</h2>
-<p>
-    @Html.ActionLink("Create New", "CreateNew", "People", null, new { @class = "nav-link text-primary" })
-
-    <!-- Search Input -->
-<div class="mb-3">
+<p> @Html.ActionLink("Create New", "CreateNew", "People", null, new { @class = "nav-link text-primary" })</p>
+<!-- Search Function -->
+<div class=" mb-3">
     <input type="text" id="searchBox" class="form-control" placeholder="Search First Name" />
+    <button id="searchBtn" class="btn btn-primary" type="button">Search</button>
 </div>
 
+<!-- Database Table -->
 
-    @if (Model != null && Model.Any())
-    {
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.StudentNumber)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>@Html.DisplayNameFor(model => model.StudentNumber)</th>
-                    <th>@Html.DisplayNameFor(model => model.FirstName)</th>
-                    <th>@Html.DisplayNameFor(model => model.LastName)</th>
-                    <th>@Html.DisplayNameFor(model => model.Email)</th>
-                    <th>Delete</th>
+                    <td>@("u" + item.StudentNumber.ToString("D8"))</td>
+                    <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+
+                    <td>
+                        <button class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@("u" + item.StudentNumber.ToString("D8"))</td>
-                        <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
-                        <td>@Html.DisplayFor(modelItem => item.LastName)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
-
-                        <td>
-                            <button class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-
-        <!-- JavaScript to remove row -->
-        <script>
-            function deleteRow(button) {
-                const row = button.closest('tr');
-                if (row) {
-                    row.remove();
-                }
             }
-        </script>
+        </tbody>
+    </table>
 
-        <!-- JavaScript to highlight rows -->
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const rows = document.querySelectorAll("table tbody tr");
+    <!-- JavaScript to remove row -->
+    <script>
+        function deleteRow(button) {
+            const row = button.closest('tr');
+            if (row) {
+                row.remove();
+            }
+        }
+    </script>
 
-                rows.forEach((row, index) => {
-                    const firstNameCell = row.querySelector("td:nth-child(2)"); // Select the second column (First Name)
-                    if (firstNameCell) {
-                        const name = firstNameCell.textContent.trim();
-                        const firstChar = name.charAt(0).toUpperCase();
+    <!-- JavaScript to highlight rows -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const rows = document.querySelectorAll("table tbody tr");
 
-                        // Highlight row if the first name starts with 'J'
-                        if (firstChar === "J") {
-                            row.style.color = "red";
-                        }
+            rows.forEach((row, index) => {
+                const firstNameCell = row.querySelector("td:nth-child(2)"); // Select the second column (First Name)
+                if (firstNameCell) {
+                    const name = firstNameCell.textContent.trim();
+                    const firstChar = name.charAt(0).toUpperCase();
+
+                    // Highlight row if the first name starts with 'J'
+                    if (firstChar === "J") {
+                        row.style.color = "red";
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("searchBtn").addEventListener("click", function () {
+                var query = document.getElementById("searchBox").value.trim().toLowerCase();
+
+                document.querySelectorAll("table tbody tr").forEach(function (row) {
+                    var name = row.cells[1].textContent.trim().toLowerCase();
+
+                    if (query && name.includes(query)) {
+                        row.style.color = "red";
+
+                        setTimeout(function () {
+                            row.style.color = "";
+                        }, 3000);
+                    } else {
+                        row.style.color = "";
                     }
                 });
             });
-        </script>
+        });
+    </script>
 
-    }
+
+
+
+}
 
