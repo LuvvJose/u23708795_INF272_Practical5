@@ -6,7 +6,7 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm("AddPerson", "People", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+@using (Html.BeginForm("CreateNew", "People", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
 {
     <div class="container mt-5">
         <h2 class="mb-4">Your details</h2>
@@ -42,13 +42,16 @@
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary">Create</button>
 
-        <br/><br/>
+        <br /><br />
 
         <div>
             <a class="nav-link text-primary" href="@Url.Action("PeopleList", "People")">Back to List</a>
         </div>
     </div>
 }
+
+
+<!-- Validation -->
 
 <script>
     (function () {
@@ -66,5 +69,28 @@
         });
     })();
 </script>
+
+<!-- JavaScript to handle form submission and local storage -->
+
+<script>
+    document.getElementById("submitButton").addEventListener("click", function () {
+        const studentNumber = document.getElementById("StudentNumber").value;
+        const firstName = document.getElementById("FirstName").value;
+        const lastName = document.getElementById("LastName").value;
+        const email = document.getElementById("Email").value;
+
+        if ([studentNumber, firstName, lastName, email].includes('')) {
+            alert("All fields are required.");
+            return;
+        }
+
+        const newRow = `${studentNumber}|${firstName}|${lastName}|${email}`;
+        const existingData = localStorage.getItem("peopleTableData") || "";
+        localStorage.setItem("peopleTableData", existingData + (existingData ? "\n" : "") + newRow);
+
+        window.location.href = "@Url.Action("PeopleList", "People")";
+    });
+</script>
+
 
 
