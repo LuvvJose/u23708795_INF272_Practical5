@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/StyleSheet1.css">  <!-- External CSS reference -->
+    <title>Person 4 - Jeff Rizal</title>
+</head>
+<body>
+
+
+    <div class="menu">
+        <ul class="nav">
+            <li><a href="/Home/SimpleStart" class="menu-link" id="link1">Main Menu</a></li>
+            <li><a href="/People/PeopleList" class="menu-link" id="link3">People List</a></li>
+            <li><a href="/HTML/Person1Page.html" class="menu-link" id="link3">Person 01</a></li>
+            <li><a href="/HTML/Person2Page.html" class="menu-link" id="link4">Person 02</a></li>
+            <li><a href="/HTML/Person3Page.html" class="menu-link" id="link5">Person 03</a></li>
+            <li><a href="/HTML/Person4Page.html" class="menu-link" id="link6">Person 04</a></li>
+            <li><a href="/HTML/Person5Page.html" class="menu-link" id="link7">Person 05</a></li>
+            <li><a href="javascript:history.back();" class="menu-link" id="link8">Back</a></li>
+        </ul>
+    </div>
+
+
+
+    <!-- Biography and Background -->
+    <div class="container">
+        <h2>Biography and Background</h2>
+        <div class="FirstBlock">
+            <img src="Images/tony-stark-iron-man.jpg">
+            <p>Jeff was born in Durban, and went to school in BayWatch College. He does lifguard training because he is very passionate about the ocean.</p>
+        </div>
+    </div>
+
+    <!-- Hobbies -->
+    <div class="container">
+        <h2>Hobbies</h2>
+        <div class="SecondBlock">
+            <p>Jeff enjoys playing games on his off days.</p>
+            <img src="Images/Games.jpg">
+        </div>
+    </div>
+
+    <!-- Modules -->
+
+    <div class="container">
+
+        <div class="modules">
+            <h2>Modules</h2>
+
+            <div class="modules-container">
+                <div class="column">
+                    <h3>Modules Semester 1</h3>
+                    <ul>
+                        <li>CPR 11</li>
+                        <li>CPR 12</li>
+                        <li>CPR 13</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Modules Semester 2</h3>
+                    <ul>
+                        <li>CPR 21</li>
+                        <li>CPR 22</li>
+                        <li>CPR 23</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to manage active link and dynamic behavior -->
+    <script>
+        const links = document.querySelectorAll('.menu-link');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove 'active-link' class from all links
+                links.forEach(link => link.classList.remove('active-link'));
+                // Add 'active-link' to the clicked link
+                link.classList.add('active-link');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUrl = window.location.href;
+            links.forEach(link => {
+                if (currentUrl.includes(link.getAttribute('href'))) {
+                    link.classList.add('active-link');
+                }
+            });
+        });</script>
+</body>
+</html>

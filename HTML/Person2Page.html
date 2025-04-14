@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Content/StyleSheet1.css">  <!-- External CSS -->
+
+    <title>Person 2 - Jane Doe</title>
+</head>
+<body>
+
+  
+    <div class="menu">
+        <ul class="nav nav-pills">
+            <li><a href="/Home/SimpleStart" class="menu-link" id="link1">Main Menu</a></li>
+            <li><a href="/People/PeopleList" class="menu-link" id="link3">People List</a></li>
+            <li><a href="/HTML/Person1Page.html" class="menu-link" id="link3">Person 01</a></li>
+            <li><a href="/HTML/Person2Page.html" class="menu-link" id="link4">Person 02</a></li>
+            <li><a href="/HTML/Person3Page.html" class="menu-link" id="link5">Person 03</a></li>
+            <li><a href="/HTML/Person4Page.html" class="menu-link" id="link6">Person 04</a></li>
+            <li><a href="/HTML/Person5Page.html" class="menu-link" id="link7">Person 05</a></li>
+            <li><a href="javascript:history.back();" class="menu-link" id="link8">Back</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>More info on this person</h1>
+
+        <!-- Biography Panel -->
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h3 class="panel-title">Biography and Background</h3></div>
+            <div class="panel-body">
+                <img src="Images/black-widow-1.jpg" class="img-responsive pull-left" style="margin-right: 15px; max-width: 200px;">
+                <p>Jane was born in Gauteng, and went to school in Dorrito College. She studies Law because there are too many criminals.</p>
+            </div>
+        </div>
+
+        <!-- Hobbies Panel -->
+        <div class="panel panel-success">
+            <div class="panel-heading"><h3 class="panel-title">Hobbies</h3></div>
+            <div class="panel-body">
+                <img src="Images/CartoonBook.jpg" class="img-responsive pull-left" style="margin-right: 15px; max-width: 200px;">
+                <p>Jane enjoys reading books. She particularly likes fiction and fantasy novels.</p>
+            </div>
+        </div>
+
+        <!-- Modules Panel -->
+        <div class="panel panel-info">
+            <div class="panel-heading"><h3 class="panel-title">Modules</h3></div>
+            <div class="panel-body">
+                <div class="modules-container">
+                    <div class="column">
+                        <h3>Modules Semester 1</h3>
+                        <ul>
+                            <li>Law 1</li>
+                            <li>Law 12</li>
+                            <li>Law 18</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Modules Semester 2</h3>
+                        <ul>
+                            <li>Law 2</li>
+                            <li>Law 22</li>
+                            <li>Law 28</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        const links = document.querySelectorAll('.menu-link');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                links.forEach(link => link.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUrl = window.location.href;
+            links.forEach(link => {
+                if (currentUrl.includes(link.getAttribute('href'))) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

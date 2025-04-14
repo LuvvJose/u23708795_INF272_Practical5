@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/Content/StyleSheet1.css">  <!-- External CSS reference -->
+    <title>Person 3 - John Doe</title>
+</head>
+<body>
+
+    <!-- Navigation Menu with Bootstrap Styling -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Menu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/Home/SimpleStart" class="nav-link" id="link1">Main Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/People/PeopleList" class="nav-link" id="link3">People List</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/HTML/Person1Page.html" class="nav-link" id="link3">Person 01</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/HTML/Person2Page.html" class="nav-link" id="link4">Person 02</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="/HTML/Person3Page.html" class="nav-link" id="link5">Person 03</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/HTML/Person4Page.html" class="nav-link" id="link6">Person 04</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/HTML/Person5Page.html" class="nav-link" id="link7">Person 05</a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:history.back();" class="nav-link" id="link8">Back</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Biography and Background Section -->
+    <div class="container mt-4">
+        <h2>Biography and Background</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="Images/peter-parker-Cropped.jpg" class="img-fluid" alt="John's Image">
+            </div>
+            <div class="col-md-6">
+                <p>John was born in Gauteng, and went to school in Dorrito College. He studies Criminology because there are criminals who should be in jail but are walking free.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hobbies Section -->
+    <div class="container mt-4">
+        <h2>Hobbies</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <p>John plays a variety of sports in his free time.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="Images/sports.jpg" class="img-fluid" alt="Sports Image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modules Section -->
+    <div class="container mt-4">
+        <h2>Modules</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Modules Semester 1</h3>
+                <ul>
+                    <li>CRI 11</li>
+                    <li>CRI 12</li>
+                    <li>CRI 13</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Modules Semester 2</h3>
+                <ul>
+                    <li>CRI 21</li>
+                    <li>CRI 22</li>
+                    <li>CRI 23</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for active link -->
+    <script>
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+              
+                links.forEach(link => link.classList.remove('active'));
+               
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

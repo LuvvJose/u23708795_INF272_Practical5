@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Simple Starting Sample", "SimpleStart", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+                    <!-- List of People Menu Item with Sub-menu -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            List of People
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Action("PeopleList", "People")">Complete List</a>
+                            <a class="dropdown-item" href="@Url.Content("~/HTML/Person1Page.html")">Person 01</a>
+                            <a class="dropdown-item" href="@Url.Content("~/HTML/Person2Page.html")">Person 02</a>
+                            <a class="dropdown-item" href="@Url.Content("~/HTML/Person3Page.html")">Person 03</a>
+                            <a class="dropdown-item" href="@Url.Content("~/HTML/Person4Page.html")">Person 04</a>
+                            <a class="dropdown-item" href="@Url.Content("~/HTML/Person5Page.html")">Person 05</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <!-- Include Bootstrap JS and jQuery if the bundles are not working -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

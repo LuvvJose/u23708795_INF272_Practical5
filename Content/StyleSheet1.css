@@ -1,0 +1,214 @@
+﻿/* Menu  */
+.menu {
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+    .nav li {
+        margin-right: 10px;
+        padding-right: 10px;
+        border-right: 1px solid white;
+    }
+
+        .nav li:last-child {
+            border-right: none;
+        }
+
+.menu-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+    .menu-link:hover {
+        background-color: grey;
+    }
+
+.active-link {
+    background-color: mediumpurple;
+}
+
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .nav li {
+            margin: 5px 0;
+            padding: 5px 0;
+            border-right: none;
+        }
+}
+
+/* Styling for the page content */
+.container {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: 10px solid black;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+    /* Flex container for the image and text */
+    .container .FirstBlock {
+        display: flex;
+        align-items: center; /* Vertically center the items */
+    }
+
+    /* Flex container for the image and text */
+    .container .SecondBlock {
+        display: flex;
+        justify-content: space-between; /* Spaces out the text and image */
+        align-items: center; /* Vertically center the items */
+    }
+
+    .container img {
+        max-width: 200px; /* Limit the image size */
+        margin-right: 20px; /* Adds space between the image and the text */
+    }
+
+    .container p {
+        font-size: 1.1em;
+        color: #333;
+        line-height: 1.6;
+        max-width: 600px;
+      
+}
+
+img {
+    width: 150px;
+    height: Auto;
+    display: block;
+    margin: 10px;
+    border-radius: 10px;
+   
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+
+/* Modules*/
+
+.modules {
+    max-width: 600px;
+}
+
+.modules-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.column {
+    width: 45%;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+/*Mirror Image*/
+
+img {
+    transition: transform 0.5s ease-in-out;
+}
+
+    img:hover {
+        transform: scaleX(-1);
+    }
+
+/* Styling the boxes */
+.box {
+    border: 2px solid; 
+    border-radius: 10px;
+    padding: 20px; 
+    background-color: #f8f9fa; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    min-height: 450px;
+    height: 100%; 
+}
+
+  
+    .box img {
+        float: left; 
+        margin-right: 15px; 
+        max-width: 100%; 
+        height: auto; 
+    }
+
+    .box p {
+        font-size: 1rem; 
+        color: #333;
+        line-height: 1.6; 
+        clear: both;
+    }
+
+/* Ensure all boxes have equal height */
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: stretch; /* Ensures that columns stretch to equal height */
+}
+
+.col-lg-4, .col-md-6 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch; 
+    height: 100%; /* Ensures the height of the columns are consistent */
+}
+
+
+.box img {
+    max-width: 100%; /* Makes images fit the container */
+    height: auto; 
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+ /* Styling for the panel */
+.panel-body p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+img.pull-left {
+    margin-bottom: 15px;
+}
