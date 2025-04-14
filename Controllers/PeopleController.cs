@@ -14,21 +14,17 @@ namespace Prac2.Controllers
            
         };
 
-        // GET: People list
         public ActionResult PeopleList()
         {
             return View(peopleList); 
         }
 
-        // GET: Show form to create new person
         public ActionResult CreateNew()
         {
             return View();
         }
 
-        // POST: Add person to list
-        [HttpPost]
-        public ActionResult CreateNew(People person)
+        [HttpPost] public ActionResult CreateNew(People person)
         {
             if (ModelState.IsValid)
             {
