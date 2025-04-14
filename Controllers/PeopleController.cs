@@ -9,19 +9,39 @@ namespace Prac2.Controllers
 {
     public class PeopleController : Controller
     {
-        // GET: People
+        // ✅ Static list that holds all people globally (simulated in-memory database)
+        private static List<People> peopleList = new List<People>
+        {
+            new People { StudentNumber = 1234567, FirstName = "Jose", LastName = "Edu", Email = "jose@tuks.co.za"},
+            new People { StudentNumber = 12345678, FirstName = "Jane", LastName = "Doe", Email = "jane.doe@tuks.co.za" },
+            new People { StudentNumber = 23708795, FirstName = "John", LastName = "Doe", Email = "john.doe@tuks.co.za" },
+            new People { StudentNumber = 18345689, FirstName = "Jeff", LastName = "Rizal", Email = "jeff@gmail.com" },
+            new People { StudentNumber = 28658477, FirstName = "Andres", LastName = "Bonifacio", Email = "Andres@gmail.com" }
+        };
+
+        // GET: People list
         public ActionResult PeopleList()
         {
-            List<People> people = new List<People>
-            {
-                new People { StudentNumber = 1234567, FirstName = "Jose", LastName = "Edu", Email = "jose@tuks.co.za", MyLink = "~/HTML/Person1Page.html" },
-                new People { StudentNumber = 12345678, FirstName = "Jane", LastName = "Doe", Email = "jane.doe@tuks.co.za", MyLink = "~/HTML/Person2Page.html" },
-                new People { StudentNumber = 23708795, FirstName = "John", LastName = "Doe", Email = "john.doe@tuks.co.za", MyLink = "~/HTML/Person3Page.html" },
-                new People { StudentNumber = 18345689, FirstName = "Jeff", LastName = "Rizal", Email = "jeff@gmail.com", MyLink = "~/HTML/Person4Page.html" },
-                new People { StudentNumber = 28658477, FirstName = "Andres", LastName = "Bonifacio", Email = "Andres@gmail.com", MyLink = "~/HTML/Person5Page.html" }
-            };
+            return View(peopleList); // ✅ Return the shared list
+        }
 
-            return View(people);
+        // GET: Show form to create new person
+        public ActionResult CreateNew()
+        {
+            return View();
+        }
+
+        // POST: Add person to list
+        [HttpPost]
+        public ActionResult CreateNew(People person)
+        {
+            if (ModelState.IsValid)
+            {
+                peopleList.Add(person); // ✅ Add to shared list
+                return RedirectToAction("PeopleList");
+            }
+
+            return View(person); // If validation fails
         }
     }
 }

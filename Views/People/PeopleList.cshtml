@@ -5,73 +5,68 @@
 }
 
 <h2>People List</h2>
+<p>
+    @Html.ActionLink("Create New", "CreateNew", "People", null, new { @class = "nav-link" })
 
-@if (Model != null && Model.Any())
-{
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.StudentNumber)</th>
-                <th>@Html.DisplayNameFor(model => model.FirstName)</th>
-                <th>@Html.DisplayNameFor(model => model.LastName)</th>
-                <th>@Html.DisplayNameFor(model => model.Email)</th>
-                <th>Profile Link</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
                 <tr>
-                    <td>@("u" + item.StudentNumber.ToString("D8"))</td>
-                    <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
-                    <td>@Html.DisplayFor(modelItem => item.LastName)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                    <td>
-                        <a href="@Url.Content(item.MyLink)"
-                           class="btn btn-purple"
-                           style="background-color: #6a1b9a; color: white; border: none;">
-                            LINK
-                        </a>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
-                    </td>
+                    <th>@Html.DisplayNameFor(model => model.StudentNumber)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                    <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>Delete</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@("u" + item.StudentNumber.ToString("D8"))</td>
+                        <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
 
-
-    <!-- JavaScript to remove row -->
-    <script>
-        function deleteRow(button) {
-            const row = button.closest('tr');
-            if (row) {
-                row.remove();
-            }
-        }
-    </script>
-
-    <!-- JavaScript to highlight rows -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const rows = document.querySelectorAll("table tbody tr");
-
-            rows.forEach((row, index) => {
-                const firstNameCell = row.querySelector("td:nth-child(2)"); // Select the second column (First Name)
-                if (firstNameCell) {
-                    const name = firstNameCell.textContent.trim();
-                    const firstChar = name.charAt(0).toUpperCase(); 
-
-                    // Highlight row if the first name starts with 'J'
-                    if (firstChar === "J") {
-                        row.style.color = "red";
-                    }
+                        <td>
+                            <button class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
+                        </td>
+                    </tr>
                 }
-            });
-        });
-    </script>
+            </tbody>
+        </table>
 
-}
+
+        <!-- JavaScript to remove row -->
+        <script>
+            function deleteRow(button) {
+                const row = button.closest('tr');
+                if (row) {
+                    row.remove();
+                }
+            }
+        </script>
+
+        <!-- JavaScript to highlight rows -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const rows = document.querySelectorAll("table tbody tr");
+
+                rows.forEach((row, index) => {
+                    const firstNameCell = row.querySelector("td:nth-child(2)"); // Select the second column (First Name)
+                    if (firstNameCell) {
+                        const name = firstNameCell.textContent.trim();
+                        const firstChar = name.charAt(0).toUpperCase();
+
+                        // Highlight row if the first name starts with 'J'
+                        if (firstChar === "J") {
+                            row.style.color = "red";
+                        }
+                    }
+                });
+            });
+        </script>
+
+    }
 

@@ -1,0 +1,67 @@
+﻿@model Prac2.Models.People
+
+@{
+    ViewBag.Title = "CreateNew";
+}
+
+<h2>Create</h2>
+<p>
+    <a class="btn btn-primary" href="@Url.Action("PeopleList", "People")">Back to List</a>
+</p>
+
+@using (Html.BeginForm("AddPerson", "People", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+{
+    <div class="container mt-5">
+        <h2 class="mb-4">Your details</h2>
+
+        <!-- Student Number Field -->
+        <div class="mb-3">
+            @Html.LabelFor(m => m.StudentNumber, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.StudentNumber, new { @class = "form-control", @placeholder = "Enter Student Number", required = "required" })
+            <div class="invalid-feedback">Student Number is required.</div>
+        </div>
+
+        <!-- First Name Field -->
+        <div class="mb-3">
+            @Html.LabelFor(m => m.FirstName, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Enter First Name", required = "required" })
+            <div class="invalid-feedback">First Name is required.</div>
+        </div>
+
+        <!-- Last Name Field -->
+        <div class="mb-3">
+            @Html.LabelFor(m => m.LastName, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Enter Last Name", required = "required" })
+            <div class="invalid-feedback">Last Name is required.</div>
+        </div>
+
+        <!-- Email Address Field -->
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Enter Your Email", required = "required", type = "email" })
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        (function () {
+            'use strict';
+            var forms = document.querySelectorAll('.needs-validation');
+
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+}
