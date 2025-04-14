@@ -11,11 +11,7 @@ namespace Prac2.Controllers
     {
         private static List<People> peopleList = new List<People>
         {
-            new People { StudentNumber = 1234567, FirstName = "Jose", LastName = "Edu", Email = "jose@tuks.co.za"},
-            new People { StudentNumber = 12345678, FirstName = "Jane", LastName = "Doe", Email = "jane.doe@tuks.co.za" },
-            new People { StudentNumber = 23708795, FirstName = "John", LastName = "Doe", Email = "john.doe@tuks.co.za" },
-            new People { StudentNumber = 18345689, FirstName = "Jeff", LastName = "Rizal", Email = "jeff@gmail.com" },
-            new People { StudentNumber = 28658477, FirstName = "Andres", LastName = "Bonifacio", Email = "Andres@gmail.com" }
+           
         };
 
         // GET: People list
