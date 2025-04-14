@@ -6,7 +6,13 @@
 
 <h2>People List</h2>
 <p>
-    @Html.ActionLink("Create New", "CreateNew", "People", null, new { @class = "nav-link" })
+    @Html.ActionLink("Create New", "CreateNew", "People", null, new { @class = "nav-link text-primary" })
+
+    <!-- Search Input -->
+<div class="mb-3">
+    <input type="text" id="searchBox" class="form-control" placeholder="Search First Name" />
+</div>
+
 
     @if (Model != null && Model.Any())
     {

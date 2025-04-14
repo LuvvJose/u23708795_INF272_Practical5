@@ -9,7 +9,6 @@ namespace Prac2.Controllers
 {
     public class PeopleController : Controller
     {
-        // ✅ Static list that holds all people globally (simulated in-memory database)
         private static List<People> peopleList = new List<People>
         {
             new People { StudentNumber = 1234567, FirstName = "Jose", LastName = "Edu", Email = "jose@tuks.co.za"},
@@ -22,7 +21,7 @@ namespace Prac2.Controllers
         // GET: People list
         public ActionResult PeopleList()
         {
-            return View(peopleList); // ✅ Return the shared list
+            return View(peopleList); 
         }
 
         // GET: Show form to create new person
@@ -37,11 +36,11 @@ namespace Prac2.Controllers
         {
             if (ModelState.IsValid)
             {
-                peopleList.Add(person); // ✅ Add to shared list
+                peopleList.Add(person); 
                 return RedirectToAction("PeopleList");
             }
 
-            return View(person); // If validation fails
+            return View(person); 
         }
     }
 }
